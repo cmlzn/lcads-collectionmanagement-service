@@ -1,0 +1,53 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "lcads-collectionmanagement-service API",
+    "description": "Manages institutional and personal collections of digitized documents, assignment of documents to collections, favorites, classification, curation audit trail, and visibility/privacy settings for libraries and end users.",
+    "version": "1.0.0"
+  },
+  "servers": [],
+  "paths": {},
+  "components": {
+    "schemas": {
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "type": "string"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          },
+          "errCode": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "date": {
+            "type": "string"
+          },
+          "detail": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "apiKey",
+        "description": "JWT Authorization header using the Bearer scheme. \\r\\n\\r\\n \r\n  Enter 'Bearer' [space] and then your token in the text input below.\r\n                      \\r\\n\\r\\nExample: 'Bearer 12345abcdef'",
+        "name": "Authorization",
+        "in": "header"
+      }
+    }
+  },
+  "security": [
+    {
+      "Bearer": []
+    }
+  ]
+}

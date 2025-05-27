@@ -1,0 +1,78 @@
+
+syntax = "proto3";
+
+package collectionManagement;
+
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+
+message collection {
+    string id = 1;
+    string title = 2;
+    optional string description = 3;
+    int32 type = 4;
+    repeated string themeTags = 5;
+    optional string institution = 6;
+    int32 visibility = 7;
+    optional string ownerUserId = 8;
+    repeated string curatorUserIds = 9;
+    optional string auditNotes = 10;
+}
+
+
+message collectionDocument {
+    string id = 1;
+    string collectionId = 2;
+    string documentMetadataId = 3;
+    string assignedByUserId = 4;
+    optional string notes = 5;
+    optional int32 orderInCollection = 6;
+}
+
+
+message favorite {
+    string id = 1;
+    string userId = 2;
+    string documentMetadataId = 3;
+}
+
+
+message curationHistory {
+    string id = 1;
+    string collectionId = 2;
+    optional string collectionDocumentId = 3;
+    string actorUserId = 4;
+    int32 actionType = 5;
+    google.protobuf.Timestamp actionTimestamp = 6;
+    optional string reason = 7;
+}
+
+
+
+
+
+
+
+
+
+message VoidRequest {}
+    
+message CurrentUserReply {
+    string userId = 1;
+}
+
+message HelloMessageReply {
+    string hello = 1;
+}
+
+service collectionManagementService {
+
+
+
+
+
+
+    rpc currentUser(VoidRequest) returns (CurrentUserReply);
+    rpc helloMessage(VoidRequest) returns (HelloMessageReply);
+}
